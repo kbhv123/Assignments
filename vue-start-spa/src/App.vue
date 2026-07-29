@@ -1,61 +1,18 @@
 <template>
-    <navbar
-        :pages="pages"
-        :active-page="activePage"
-        :nav-link-click="(index) => activePage = index"
-    ></navbar>
 
-   <!-- <page-viewer
-        v-if="pages.length > 0"
-        :page="pages[activePage]" 
-        ></page-viewer> -->
+    <div>
+        <nav>
+            <router-link to="/">Home</router-link> |
+            <router-link to="/about">About</router-link> |
+            <router-link to="/contact">Contact</router-link>
+        </nav>
 
-    <create-page 
-        :page-created = "pageCreated"
-    ></create-page>
+        <hr>
+
+        <router-view></router-view>
+
+
+    </div>
 
 
 </template>
-
-<script>
-import PageViewer from './components/PageViewer.vue';
-import Navbar from './components/Navbar.vue';
-import CreatePage from './components/CreatePage.vue';
-
-
-
-
-export default {
-    components: {
-        Navbar,
-        PageViewer,
-        CreatePage
-    },
-    created() {
-        this.getPages();
-    },
-    
-    
-    data(){
-                return {
-                   activePage: 0, 
-                   
-                   
-                   pages: this.getPages()
-                   
-                };
-            },
-            methods: {
-                async getPages() {
-                    let res = await fetch('pages.json');
-                    let data = await res.json();
-
-                    this.pages = data;
-                },
-                pageCreated(pageObj){
-                    this.pages.push(pageObj);
-                }
-            }
-}
-
-</script>
