@@ -1,12 +1,26 @@
 <template>
-    <div>
-        <h1>About Us</h1>
-        <p>Welcome to the About Us page</p>
-    </div>
+    <div class="container">
+        <div class="row align-items-center">
 
-    <button @click="goToHistory">Our History!</button>
-    <button @click="goToPromise">Our Promise!</button>
-    <button @click="goToNews">Our News and Stores!</button>
+            <div class="col d-flex flex-column justify-content-center">
+                <h1>About Us</h1>
+                <p>About Us Paragraph</p>
+                <h1>Our Mission and Values</h1>
+                <p>Our Mission paragraph</p>
+            </div>
+
+
+            <div class="col">
+                <div class="d-flex flex-column align-items-center">
+                    <button @click="goToHistory">Our History!</button>
+                    <button @click="goToPromise">Our Promise!</button>
+                    <button @click="goToNews">Our News!</button>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     
 </template>

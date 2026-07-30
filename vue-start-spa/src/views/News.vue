@@ -1,8 +1,10 @@
 <template>
-    <div>
-        <h1>News and Stories</h1>
-        <p>Welcome to the Home page</p>
-    </div>
+<h1 class="container d-flex justify-content-center align-items-center">Our news</h1>
 
+    <div class="container d-flex justify-content-center align-items-center gap-5">
+
+        
+        <p>Our News Paragraph</p>
+    </div>
     
 </template>

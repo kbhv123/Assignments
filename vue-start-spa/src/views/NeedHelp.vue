@@ -1,17 +1,24 @@
-<script setup lang="ts">
-
-
-</script>
-
 <template>
-    <div>
-        <h1>Need Help?</h1>
-        <p>Welcome to the Need Help page</p>
-    </div>
+<h1 class="container d-flex justify-content-center align-items-center">Need Help?</h1>
 
-    <button @click="goToFinancialAssistance">Need Financial Assistance?</button>
-    <button @click="goToFinancialCounciling">Need Financial Counciling?</button> 
-    <button @click="goToInterestFreeLoans">Need Interest Free Loans?</button>
+    <div class="container d-flex justify-content-center align-items-center gap-5">
+
+        
+        <div>
+            <h1>Financial Assistance</h1>
+            <button @click="goToFinancialAssistance">Get Financial Assistance!</button>
+            
+        </div>
+        <div>
+            <h1>Financial Counciling</h1>
+            <button @click="goToFinancialCounciling">Need Financial Counciling?</button>
+        </div>
+        <div>
+            <h1>Interest Free Loans</h1>
+            <button @click="goToInterestFreeLoans">Need Interest-Free Loans?</button>
+        </div>
+    </div>
+    
 </template>
 
 <script>

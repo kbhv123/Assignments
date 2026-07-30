@@ -1,13 +1,23 @@
 <template>
-    <div>
-        <h1>Get Involved</h1>
-        <p>Welcome to the Home page</p>
+<h1 class="container d-flex justify-content-center align-items-center">Get Involved</h1>
+
+    <div class="container d-flex justify-content-center align-items-center gap-5">
+
+        
+        <div>
+            <h1>Volunteer</h1>
+            <button @click="goToVolunteer">Volunteer Now!</button>
+            
+        </div>
+        <div>
+            <h1>Corporate Support</h1>
+            <button @click="goToCorporateSupp">Corporate Support Now!</button>
+        </div>
+        <div>
+            <h1>Donations!</h1>
+            <button @click="goToDonation">Donate Now!</button>
+        </div>
     </div>
-
-    <button @click="goToVolunteer">Volunteer Now!</button>
-    <button @click="goToCorporateSupp">Corporate Support!</button>
-    <button @click="goToDonation">Make A Donation!</button>
-
     
 </template>
 

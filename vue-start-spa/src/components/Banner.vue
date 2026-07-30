@@ -32,7 +32,7 @@
     export default {
         computed: {
             showButton() {
-                return this.$route.path !== "/financialAssistance"
+                return !["/financialAssistance", "/donation", "/financialCounciling", "/loans"].includes(this.$route.path);
             }
         }
     }

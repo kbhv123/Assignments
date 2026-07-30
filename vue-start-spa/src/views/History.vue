@@ -1,8 +1,10 @@
 <template>
-    <div>
-        <h1>History</h1>
-        <p>Welcome to the Home page</p>
-    </div>
+<h1 class="container d-flex justify-content-center align-items-center">Our History</h1>
 
+    <div class="container d-flex justify-content-center align-items-center gap-5">
+
+        
+        <p>Our History Paragraph</p>
+    </div>
     
 </template>
