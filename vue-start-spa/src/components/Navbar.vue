@@ -20,6 +20,7 @@
                      <router-link class="nav-link" to="/location">Locations</router-link> 
                      <router-link class="nav-link" to="/contact">Contact</router-link>
                      <router-link class="nav-link fs-3" id="donation" to="/donation">Make a Donation!</router-link> 
+                     <router-link class="nav-link" id="login" to="/login">Login</router-link> 
                 </div>
             </div>
 

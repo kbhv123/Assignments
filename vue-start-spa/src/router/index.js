@@ -25,6 +25,9 @@ import News from "@/views/News.vue";
 import Location from "@/views/Location.vue";
 import SpecificLocations from "@/views/SpecificLocations.vue";
 
+//Imports for Login
+import login from "@/views/login.vue";
+import Login from "@/views/login.vue";
 
 //Routers for page navigation
 const routes = [
@@ -108,6 +111,11 @@ const routes = [
         path: "/specificLocation",
         name: "SpecificLocations",
         component: SpecificLocations
+    },
+    {
+        path: "/login",
+        name: "Login",
+        component: Login
     }
 ];
 
