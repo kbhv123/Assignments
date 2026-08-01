@@ -20,7 +20,9 @@
                      <router-link class="nav-link" to="/location">Locations</router-link> 
                      <router-link class="nav-link" to="/contact">Contact</router-link>
                      <router-link class="nav-link fs-3" id="donation" to="/donation">Make a Donation!</router-link> 
-                     <router-link class="nav-link" id="login" to="/login">Login</router-link> 
+                     <router-link class="nav-link" id="login" to="/login" v-if="!loggedIn">Login</router-link> 
+                     <button class="btn btn-danger" @click="logout" v-if="loggedIn">Logout</button>
+
                 </div>
             </div>
 
@@ -37,8 +39,27 @@
 
 </template>
 
-<style scoped>
+<script>
 
-    
-
-</style>
+    export default {
+        methods: {
+            logout(){
+                localStorage.removeItem("loggedIn");
+                this.loggedIn = false;
+                this.$router.push("/login");
+                
+            }
+        },
+        data() {
+            return {
+                loggedIn: localStorage.getItem("loggedIn") === "true"
+            };
+        },
+        watch: {
+            $route(){
+                this.loggedIn = localStorage.getItem("loggedIn") === "true";
+            }
+        }
+        
+    }
+</script>

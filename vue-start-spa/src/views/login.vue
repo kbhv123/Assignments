@@ -62,6 +62,16 @@
 
                 console.log(data);
                 
+                if(data.success) {
+                    localStorage.setItem("loggedIn", "true");
+                    
+                    
+
+                    this.$router.push("/donationCheck");
+                    
+                } else {
+                    alert(data.message);
+                }
                 
             } 
         }

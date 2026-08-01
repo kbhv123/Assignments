@@ -26,8 +26,11 @@ import Location from "@/views/Location.vue";
 import SpecificLocations from "@/views/SpecificLocations.vue";
 
 //Imports for Login
-import login from "@/views/login.vue";
 import Login from "@/views/login.vue";
+
+
+//Imports for Admin Specific Pages
+import DonationCheck from "@/views/DonationCheck.vue";
 
 //Routers for page navigation
 const routes = [
@@ -116,6 +119,14 @@ const routes = [
         path: "/login",
         name: "Login",
         component: Login
+    },
+    {
+        path: "/donationCheck",
+        name: "DonationCheck",
+        component: DonationCheck,
+        meta: {
+            requireAuth: true
+        }
     }
 ];
 
@@ -124,5 +135,18 @@ const router = createRouter({
     history: createWebHistory(),
     routes
 });
+
+
+router.beforeEach((to, from, next) => {
+    const loggedIn = localStorage.getItem("loggedIn");
+
+    if (to.meta.requiresAuth && !loggedIn) {
+        next("/login");
+    }else {
+        next();
+    }
+});
+
+
 
 export default router;
