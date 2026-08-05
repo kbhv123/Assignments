@@ -16,10 +16,19 @@ const db = new sqlite3.Database("./users.db", (err) => {
                 VALUES ("admin", "1234", "admin@g.com")`, (err) => {
                     if (err){
                         console.error(err.message)
+                        console.log("error is in users")
                     } else {
                         console.log("admin created")
                     }
                 });
+        db.run(`CREATE TABLE IF NOT EXISTS donations(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, email TEXT NOT NULL, card_no TEXT NOT NULL, expiry_date TEXT NOT NULL, secur_code TEXT NOT NULL, amount INT NOT NULL)`, (err) => {
+            if (err){
+                console.error(err.message)
+                console.log("the error is here")
+            }else {
+                console.log("donation Table created or exists")
+            }
+        });
     }
 
 

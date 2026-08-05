@@ -87,7 +87,55 @@ app.post("/login", (req, res) => {
     );
 });
 
+app.post("/donations", (req, res) => {
+    const {name, email, card_no, expiry, security_code, amount} = req.body;
+    
+
+    db.run(
+
+        `INSERT INTO donations (name, email, card_no, expiry_date, secur_code, amount) VALUES (?,?,?,?,?,?)`,
+        [name, email, card_no, expiry, security_code, amount],
+
+        function(err){
+            if (err) {
+                res.status(500).json({success: false, message:err.message})
+            } else {
+                res.json({
+                    success: true,
+                    
+                });
+            }
+        }
+
+    );
+
+});
+
+app.get("/donations", (req, res) => {
+
+
+    const page = Number(req.query.page) || 1;
+    const limit = 5;
+    const offset = (page-1) * limit;
+
+    db.all(
+        "SELECT * FROM donations LIMIT ? OFFSET ?", 
+        [limit, offset],
+        (err, rows) => {
+            if (err) {
+                res.status(500).send(err.message)
+            } else {
+                res.json(rows);
+            }
+        }
+    )
+
+});
+
+
+
+
  
 app.listen(3000, () => {
     console.log("server is on")
-})
+});
