@@ -10,6 +10,8 @@
         <h2>{{ donation.email }}</h2>
         <p>{{ donation.amount }}</p>
 
+
+        <button class="btn btn-danger" @click="deleteDonation(donation.id)"></button>
         
     </div>
     <button @click="previousPage">
@@ -47,7 +49,26 @@
                     this.page--;
                     this.getDonationPage();
                 }
-            }
+            },
+
+            async deleteDonation(id) {
+                const response = await fetch (
+                    `http://localhost:3000/donations/${id}`,
+                {
+                    method: "DELETE"
+                });
+                const data = await response.json();
+
+                console.log(data);
+
+                if(data.success) {
+                    this.getDonationPage();
+
+                } else {
+                    alert(data.message);
+                }
+                
+            },
 
 
         },

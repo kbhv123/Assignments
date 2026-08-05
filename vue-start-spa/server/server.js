@@ -132,7 +132,25 @@ app.get("/donations", (req, res) => {
 
 });
 
+app.delete("/donations/:id", (req, res) => {
+    const id = req.params.id;
 
+    db.run(
+        "DELETE FROM donations WHERE id = ?", [id], 
+        function(err){
+            if (err) {
+                res.status(500).json({success: false, message:err.message})
+            } else {
+                res.json({
+                    success: true,
+                    
+                });
+            }
+        }
+
+    );
+    
+});
 
 
  
