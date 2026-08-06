@@ -244,6 +244,52 @@ app.get("/contact", (req, res) => {
 
 });
 
+
+
+app.post("/volunteer", (req, res) => {
+    const {name, phone, email, preferred, town, info} = req.body;
+
+
+    db.run(
+        `INSERT INTO volunteers (name, phone, email, preferred, town, info) VALUES (?,?,?,?,?,?)`,
+        [name, phone, email, preferred, town, info],
+        function(err){
+            if (err) {
+                res.status(500).json({success: false, message:err.message})
+            } else {
+                res.json({
+                    success: true,
+                    id: this.lastID
+                });
+            }
+        }
+        
+    )
+
+});
+
+
+app.get("/volunteer", (req, res) => {
+
+
+    const page = Number(req.query.page) || 1;
+    const limit = 5;
+    const offset = (page-1) * limit;
+
+    db.all(
+        "SELECT * FROM volunteers LIMIT ? OFFSET ?", 
+        [limit, offset],
+        (err, rows) => {
+            if (err) {
+                res.status(500).send(err.message)
+            } else {
+                res.json(rows);
+            }
+        }
+    )
+
+});
+
  
 app.listen(3000, () => {
     console.log("server is on")

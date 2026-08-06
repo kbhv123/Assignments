@@ -36,6 +36,7 @@ import DonationCheck from "@/views/DonationCheck.vue";
 import AdminCreation from "@/views/AdminCreation.vue";
 import AdminPage from "@/views/AdminPage.vue";
 import AdminContact from "@/views/AdminContact.vue";
+import AdminVolunteer from "@/views/AdminVolunteer.vue";
 
 //Routers for page navigation
 const routes = [
@@ -153,6 +154,14 @@ const routes = [
         path: "/adminContact",
         name: "/AdminContact",
         component: AdminContact,
+        meta: {
+            requireAuth: true
+        }
+    },
+    {
+        path: "/adminVolunteer",
+        name: "/AdminVolunteer",
+        component: AdminVolunteer,
         meta: {
             requireAuth: true
         }
