@@ -37,6 +37,8 @@ import AdminCreation from "@/views/AdminCreation.vue";
 import AdminPage from "@/views/AdminPage.vue";
 import AdminContact from "@/views/AdminContact.vue";
 import AdminVolunteer from "@/views/AdminVolunteer.vue";
+import AdminCorporate from "@/views/AdminCorporate.vue";
+import AdminHome from "@/views/AdminHome.vue";
 
 //Routers for page navigation
 const routes = [
@@ -162,6 +164,22 @@ const routes = [
         path: "/adminVolunteer",
         name: "/AdminVolunteer",
         component: AdminVolunteer,
+        meta: {
+            requireAuth: true
+        }
+    },
+    {
+        path: "/adminCorporate",
+        name: "/AdminCorporate",
+        component: AdminCorporate,
+        meta: {
+            requireAuth: true
+        }
+    },
+    {
+        path: "/adminHome",
+        name: "/AdminHome",
+        component: AdminHome,
         meta: {
             requireAuth: true
         }

@@ -290,6 +290,52 @@ app.get("/volunteer", (req, res) => {
 
 });
 
+
+app.post("/corporate", (req, res) => {
+    const {name, company, position, email, postcode, info} = req.body;
+
+
+    db.run(
+        `INSERT INTO corporate (name, company, position, email, postcode, info) VALUES (?,?,?,?,?,?)`,
+        [name, company, position, email, postcode, info],
+        function(err){
+            if (err) {
+                res.status(500).json({success: false, message:err.message})
+            } else {
+                res.json({
+                    success: true,
+                    id: this.lastID
+                });
+            }
+        }
+        
+    )
+
+});
+
+
+app.get("/corporate", (req, res) => {
+
+
+    const page = Number(req.query.page) || 1;
+    const limit = 5;
+    const offset = (page-1) * limit;
+
+    db.all(
+        "SELECT * FROM corporate LIMIT ? OFFSET ?", 
+        [limit, offset],
+        (err, rows) => {
+            if (err) {
+                res.status(500).send(err.message)
+            } else {
+                res.json(rows);
+            }
+        }
+    )
+
+});
+
+
  
 app.listen(3000, () => {
     console.log("server is on")

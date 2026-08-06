@@ -67,7 +67,7 @@
                     
                     
 
-                    this.$router.push("/donationCheck");
+                    this.$router.push("/adminHome");
                     
                 } else {
                     alert(data.message);
