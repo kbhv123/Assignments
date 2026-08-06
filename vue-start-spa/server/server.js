@@ -175,6 +175,29 @@ app.post("/admin", (req, res) => {
 
 });
 
+
+
+app.get("/admin", (req, res) => {
+
+
+    const page = Number(req.query.page) || 1;
+    const limit = 5;
+    const offset = (page-1) * limit;
+
+    db.all(
+        "SELECT * FROM users LIMIT ? OFFSET ?", 
+        [limit, offset],
+        (err, rows) => {
+            if (err) {
+                res.status(500).send(err.message)
+            } else {
+                res.json(rows);
+            }
+        }
+    )
+
+});
+
  
 app.listen(3000, () => {
     console.log("server is on")

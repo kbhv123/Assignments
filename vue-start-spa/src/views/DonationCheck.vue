@@ -52,6 +52,9 @@
             },
 
             async deleteDonation(id) {
+                if (!confirm("Delete this donation")) {
+                    return;
+                }
                 const response = await fetch (
                     `http://localhost:3000/donations/${id}`,
                 {

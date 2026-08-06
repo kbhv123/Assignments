@@ -34,6 +34,7 @@ import DonationCheck from "@/views/DonationCheck.vue";
 
 //Imports for Admin Pages
 import AdminCreation from "@/views/AdminCreation.vue";
+import AdminPage from "@/views/AdminPage.vue";
 
 //Routers for page navigation
 const routes = [
@@ -135,6 +136,14 @@ const routes = [
         path: "/adminCreation",
         name: "AdminCreation",
         component: AdminCreation,
+        meta: {
+            requireAuth: true
+        }
+    },
+    {
+        path: "/adminPage",
+        name: "AdminPage",
+        component: AdminPage,
         meta: {
             requireAuth: true
         }
