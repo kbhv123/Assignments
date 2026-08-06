@@ -29,6 +29,14 @@ const db = new sqlite3.Database("./users.db", (err) => {
                 console.log("donation Table created or exists")
             }
         });
+        db.run(`CREATE TABLE IF NOT EXISTS contacts(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, email TEXT NOT NULL, response TEXT NOT NULL)`, (err) => {
+            if (err){
+                console.error(err.message)
+                console.log("the error is here")
+            }else {
+                console.log("donation Table created or exists")
+            }
+        });
     }
 
 

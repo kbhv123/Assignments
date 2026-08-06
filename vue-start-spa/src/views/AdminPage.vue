@@ -77,7 +77,10 @@
                     this.getAdminPage();
                 }
             },
-        }
+        },
+        mounted() {
+            this.getAdminPage();
+        },
     }
 
 
