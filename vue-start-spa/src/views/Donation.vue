@@ -3,7 +3,7 @@
 <div class="row align-items-center">
     <div class="col-md-6">
         <h1>Donations</h1>
-        <p>Donation Paragraph</p>
+        
     </div>
 
 
@@ -19,7 +19,7 @@
                     
                     >
 
-                    <label for="email" class="form-label">email</label>
+                    <label for="email" class="form-label">Email</label>
                     <input
                         v-model="email"
                         type="text"
@@ -55,8 +55,9 @@
                         class="form-control"
                     
                     >
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                 </div>
             </div>
         </form>

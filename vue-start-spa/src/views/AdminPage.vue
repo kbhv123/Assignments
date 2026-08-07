@@ -1,13 +1,31 @@
 <template>
-<h1 class="container">Admins</h1>
+
 
     <div class="container">
-
+        <div class="col-md-12 d-flex justify-content-center align-items-center">
+                <h1>Admins</h1>
+            </div>
+        <div class="row fs-3 fw-bold">
+            <div class="col">Username</div>
+            <div class="col">Email</div>
+        </div>
+        
         
         <div v-for="user in users" :key="user.id" class="row align-items-center mb-2">
             
-            <div class="col">{{ user.email }}</div>
+        
+        
+            
             <div class="col">{{ user.username }}</div>
+        
+        
+        
+            <div class="col">{{ user.email }}</div>
+        
+
+
+            
+            
             
             
         

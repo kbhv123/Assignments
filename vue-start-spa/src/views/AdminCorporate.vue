@@ -1,15 +1,39 @@
 <template>
-<h1 class="container">Corporate Check</h1>
+
 
     <div class="container">
 
         
-        <p>Corporate Admin Check </p>
-    
+        <div class="col-md-12 d-flex justify-content-center align-items-center">
+            <h1>Corporate Messages</h1>
+        </div>
+    <br>
+    <br>
+    <div class="row fs-3 fw-bold">
+            <div class="col">Corporate Name</div>
+            <div class="col">Corporate Email</div>
+            <div class="col">Message</div>
+    </div>
     <div v-for="corporate in corporates" :key="corporate.id" class="row align-items-center mb-2">
-        <div class="col">{{ corporate.name }}</div>
-        <div class="col">{{ corporate.email }}</div>
-        <div class="col">{{ corporate.response }}</div>
+        
+        
+            
+            <div class="col">{{ corporate.name }}</div>
+
+       
+        
+            
+            <div class="col">{{ corporate.email }}</div>
+
+        
+     
+            
+            <div class="col">{{ corporate.response }}</div>
+
+        
+        
+        
+        
 
         <div class="col-auto">
             <button class="btn btn-danger" @click="deleteCorporate(corporate.id)">Delete</button>

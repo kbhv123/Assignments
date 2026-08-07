@@ -22,6 +22,7 @@
                      <router-link class="nav-link fs-3" id="donation" to="/donation">Make a Donation!</router-link> 
                      <router-link class="nav-link" id="login" to="/login" v-if="!loggedIn">Login</router-link> 
                      <button class="btn btn-danger" @click="logout" v-if="loggedIn">Logout</button>
+                     <router-link class="nav-link" id="admin" to="/adminHome" v-if="loggedIn">Admin</router-link> 
 
                 </div>
             </div>

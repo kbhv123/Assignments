@@ -1,7 +1,9 @@
 <template>
 <div class="container">
-<div class="row align-items-center">
-    <div class="col-md-6">
+<div class="row">
+    <div class="col-md-12 d-flex justify-content-center align-items-center">
+        <h1>Contact Us!</h1>
+    </div>
        <form @submit.prevent="contact">
             <div class="row justify-content-center">
                 <div class="col-md-6">
@@ -19,6 +21,7 @@
                         class="form-control"
                     
                     >
+                    
                     <label for="response" class="form-label">Reason</label>
                     <textarea
                         v-model="response"
@@ -27,8 +30,9 @@
                     
                     ></textarea>
                     
-                    <button type="submit" class="btn btn-primary">Submit</button>
-
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
 
                 </div>
             </div>
@@ -36,12 +40,10 @@
     </div>
 
 
-    <div class="col-md-6 text-center">
-        <h1>Links</h1>
-    </div>
+    
 </div>
 
-</div>      
+   
 </template>
 
 <script>

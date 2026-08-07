@@ -4,14 +4,16 @@
 
             <div class="col d-flex flex-column justify-content-center">
                 <h1>About Us</h1>
-                <p>About Us Paragraph</p>
+                <p>At This Charity, We Strive To Help Low Income Families Handle their Tough Situation</p>
                 <h1>Our Mission and Values</h1>
-                <p>Our Mission paragraph</p>
+                <p>Our Mission Is To Give Help and Assistance Low Income Families Get Out of Their Low Income Situation Through
+                    Different Strategies and To That We Stay Devoted
+                </p>
             </div>
 
 
             <div class="col">
-                <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center gap-3">
                     <button @click="goToHistory">Our History!</button>
                     <button @click="goToPromise">Our Promise!</button>
                     <button @click="goToNews">Our News!</button>

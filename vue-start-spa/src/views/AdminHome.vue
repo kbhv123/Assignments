@@ -1,12 +1,12 @@
 <template>
     <div class="container">
         <div class="row align-items-center">
-
-            
-
+            <div class="col-md-12 d-flex justify-content-center align-items-center">
+                <h1>Admin Home</h1>
+            </div>
 
             <div class="col">
-                <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center gap-3">
                     <button @click="goToAdminContact">New Contacts</button>
                     <button @click="goToAdminCorporate">Corporate Replies</button>
                     <button @click="goToAdminCreation">Add New Admins</button>

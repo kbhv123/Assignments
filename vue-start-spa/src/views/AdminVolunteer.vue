@@ -1,21 +1,53 @@
 <template>
-<h1 class="container">Donation Check</h1>
+
 
     <div class="container">
 
+        <div class="col-md-12 d-flex justify-content-center align-items-center">
+            <h1>Volunteer Requests</h1>
+        </div>
         
-        <p>Volunteer Admin Check </p>
-    
-    <div v-for="volunteer in volunteers" :key="volunteer.id" class="row align-items-center mb-2">
-        <div class="col">{{ volunteer.name }}</div>
-        <div class="col">{{ volunteer.phone }}</div>
-        <div class="col">{{ volunteer.email }}</div>
-        <div class="col">{{ volunteer.preferred }}</div>
-        <div class="col">{{ volunteer.town }}</div>
-        <div class="col">{{ volunteer.info }}</div>
+    <br>
+    <br>
+    <div class="row fs-3 fw-bold">
+            <div class="col">Name</div>
+            <div class="col">Phone</div>
+            <div class="col">Email</div>
+            <div class="col">Contact</div>
+            <div class="col">Town</div>
+            <div class="col">Info</div>
+        </div>
+    <div v-for="volunteer in volunteers" :key="volunteer.id" class="row justify-content-center align-items-center mb-2">
+        
+        
+            <div class="col">{{ volunteer.name }}</div>
+        
+        
+            
+            <div class="col">{{ volunteer.phone }}</div>
+        
+       
+             <div class="col">{{ volunteer.email }}</div>
+        
+       
+            <div class="col">{{ volunteer.preferred }}</div>
+        
+        
+            <div class="col">{{ volunteer.town }}</div>
+        
+        
+            <div class="col">{{ volunteer.info }}</div>
+        
+        
+        
+        
+       
+        
+        
+        
         
 
-        <div class="col-auto">
+        <div class="col-end">
             <button class="btn btn-danger" @click="deleteVolunteer(volunteer.id)">Delete</button>
         </div>
     </div>

@@ -1,15 +1,34 @@
 <template>
-<h1 class="container">Donation Check</h1>
+
 
     <div class="container">
 
-        
-        <p>Donation Admin Check </p>
-    
+        <div class="col-md-12 d-flex justify-content-center align-items-center">
+            <h1>Customer Messages</h1>
+        </div>
+    <br>
+    <br>
+    <div class="row fs-3 fw-bold">
+            <div class="col">Name</div>
+            <div class="col">Email</div>
+            <div class="col">Message</div>
+    </div>
     <div v-for="contact in contacts" :key="contact.id" class="row align-items-center mb-2">
-        <div class="col">{{ contact.name }}</div>
-        <div class="col">{{ contact.email }}</div>
-        <div class="col">{{ contact.response }}</div>
+        
+            
+            <div class="col">{{ contact.name }}</div>
+        
+        
+            
+            <div class="col">{{ contact.email }}</div>
+        
+        
+            
+            <div class="col">{{ contact.response }}</div>
+       
+        
+        
+        
 
         <div class="col-auto">
             <button class="btn btn-danger" @click="deleteContact(contact.id)">Delete</button>

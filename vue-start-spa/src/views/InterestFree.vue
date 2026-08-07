@@ -5,11 +5,11 @@
             <h1>Interest Free Loans</h1>
 
             <p>Interest Free Paragraph</p>
-            <p>Contact phone numbers</p>
+            <p>Call This Number Below to get Expert Financial Assistance!</p>
             <h1>Frequently Asked Questions</h1>
-            <p @click="showOne = !showOne">Question 1</p>
+            <p @click="showOne = !showOne">Who Can Get These Loans</p>
             <p v-if="showOne">answer1</p>
-            <p @click="showTwo = !showTwo">Question 2</p>
+            <p @click="showTwo = !showTwo">Where Can I Apply</p>
             <p v-if="showTwo">answer2</p>
         </div>
     </div>

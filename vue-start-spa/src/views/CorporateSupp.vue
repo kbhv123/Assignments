@@ -3,23 +3,7 @@
 
     <div class="container d-flex justify-content-center align-items-center gap-5">
 
-        <div class="row text-center">
-            <p>Corporate Support paragraph</p>
-            <div class="col">
-                <p>Corp 1</p>
-                <p>corp 1 para</p>
-                
-            </div>
-            <div class="col">
-                <p>Corp 2</p>
-                <p>corp 2 para</p>
-                
-            </div>
-            <div class="col">
-                <p>Corp 3</p>
-                <p>corp 3 para</p>
-            </div>
-        </div>
+        
         
         
     </div>

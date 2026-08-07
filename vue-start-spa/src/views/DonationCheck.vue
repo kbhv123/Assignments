@@ -1,25 +1,42 @@
 <template>
-<h1 class="container d-flex justify-content-center align-items-center">Donation Check</h1>
 
-    <div class="container d-flex justify-content-center align-items-center gap-5">
 
+    <div class="container">
+
+      <div class="col-md-12 d-flex justify-content-center align-items-center">
+            <h1>Donations</h1>
+        </div>  
         
-        <p>Donation Admin Check </p>
-    </div>
-    <div v-for="donation in donations" :key="donations.id">
-        <h2>{{ donation.email }}</h2>
-        <p>{{ donation.amount }}</p>
+    
+    <br>
+    <br>
+        <div class="row fs-3 fw-bold">
+             <div class="col">Email</div>
+             <div class="col">Amount</div>
+        </div>
 
+    <div v-for="donation in donations" :key="donations.id" class="row  justify-content-center align-items-center mb-2">
+        <div class="col">{{ donation.email }}</div>
+        <div class="col">{{ donation.amount }}</div>
+        
+        
 
-        <button class="btn btn-danger" @click="deleteDonation(donation.id)"></button>
+        <div class="col-auto">
+            <button class="btn btn-danger" @click="deleteDonation(donation.id)">Delete</button>
+        </div>
+        
         
     </div>
-    <button @click="previousPage">
+</div>
+    <div class="d-flex justify-content-center">
+        <button @click="previousPage">
             <-
-        </button>
-        <button @click="nextPage">
+    </button>
+    <button @click="nextPage">
             ->
-        </button>
+    </button>
+    </div>
+
 </template>
 
 <script>

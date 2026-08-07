@@ -1,18 +1,41 @@
 <template>
-<h1 class="container d-flex justify-content-center align-items-center">Admin Creation</h1>
 
-    <div class="container d-flex justify-content-center align-items-center gap-5">
+
+    <div class="container">
 
         
-        <p>Admins</p>
+         <div class="col-md-12 d-flex justify-content-center align-items-center">
+            <h1>Create New Admins</h1>
+        </div>
 
-        <form @submit.prevent="createAdmin">
-            <input v-model = "username">
-            <input v-model = "password" type="password">
-            <input v-model = "email">
-            <button>
+        <br>
+        <br>
+        <div class="row fs-3 fw-bold">
+            <div class="col">Username</div>
+            <div class="col">Password</div>
+            <div class="col">Email</div>
+        </div>
+        <form @submit.prevent="createAdmin" class="row justify-content-center align-items-center mb-2">
+            <div class="col">
+                
+                <input v-model = "username">
+            </div>
+            <div class="col">
+                
+                <input v-model = "password" type="password">
+            </div>
+            <div class="col">
+                
+                <input v-model = "email">
+            </div>
+            
+            
+            <div class="col-auto">
+                <button>
                 Create Admin
-            </button>
+                </button>
+            </div>
+            
         </form>
 
 

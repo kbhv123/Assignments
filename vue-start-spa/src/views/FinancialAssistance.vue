@@ -3,8 +3,8 @@
 <div class="row align-items-center">
     <div class="col-md-6">
        <h1>Financial Assistance</h1>
-       <p>Paragraph</p>
-       <p>Contact Phone Numbers</p>
+       <p>Call This Number Below to get Expert Financial Assistance!</p>
+       <p>012345678</p>
     </div>
 
 
