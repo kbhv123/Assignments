@@ -164,6 +164,30 @@ app.get("/admin", (req, res) => {
 
 });
 
+
+//Delete Request for admin
+app.delete("/admin/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.run(
+        "DELETE FROM users WHERE id = ?", [id], 
+        function(err){
+            if (err) {
+                res.status(500).json({success: false, message:err.message})
+            } else {
+                res.json({
+                    success: true,
+                    
+                });
+            }
+        }
+
+    );
+    
+});
+
+
+
 //Post Request to Add new Contact Information from Users
 app.post("/contact", (req, res) => {
     const {name, email, response} = req.body;
@@ -212,6 +236,28 @@ app.get("/contact", (req, res) => {
 });
 
 
+//Delete Request for contact
+app.delete("/contact/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.run(
+        "DELETE FROM contacts WHERE id = ?", [id], 
+        function(err){
+            if (err) {
+                res.status(500).json({success: false, message:err.message})
+            } else {
+                res.json({
+                    success: true,
+                    
+                });
+            }
+        }
+
+    );
+    
+});
+
+
 //Post Request to Add New Volunteer Requests
 app.post("/volunteer", (req, res) => {
     const {name, phone, email, preferred, town, info} = req.body;
@@ -257,6 +303,28 @@ app.get("/volunteer", (req, res) => {
 
 });
 
+
+//Delete Request for volunteer
+app.delete("/volunteer/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.run(
+        "DELETE FROM volunteers WHERE id = ?", [id], 
+        function(err){
+            if (err) {
+                res.status(500).json({success: false, message:err.message})
+            } else {
+                res.json({
+                    success: true,
+                    
+                });
+            }
+        }
+
+    );
+    
+});
+
 //Post Request to Add New Corporate Requests
 app.post("/corporate", (req, res) => {
     const {name, company, position, email, postcode, info} = req.body;
@@ -300,6 +368,28 @@ app.get("/corporate", (req, res) => {
         }
     )
 
+});
+
+
+//Delete Request for corporate
+app.delete("/corporate/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.run(
+        "DELETE FROM corporate WHERE id = ?", [id], 
+        function(err){
+            if (err) {
+                res.status(500).json({success: false, message:err.message})
+            } else {
+                res.json({
+                    success: true,
+                    
+                });
+            }
+        }
+
+    );
+    
 });
 
 

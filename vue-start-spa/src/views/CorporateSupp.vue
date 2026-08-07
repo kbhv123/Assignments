@@ -118,7 +118,12 @@
 
                 console.log(data);
                 
-                
+                 if(data.success) {
+                    alert("Your Message Has Been Sent");
+                    
+                } else {
+                    alert(data.message);
+                }
                 
             },
 

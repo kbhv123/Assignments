@@ -12,14 +12,7 @@
             </div>
 
 
-            <div class="col">
-                <div class="d-flex flex-column align-items-center gap-3">
-                    <button @click="goToHistory">Our History!</button>
-                    <button @click="goToPromise">Our Promise!</button>
-                    <button @click="goToNews">Our News!</button>
-                    
-                </div>
-            </div>
+            
 
         </div>
     </div>
@@ -28,22 +21,3 @@
 </template>
 
 
-<script>
-
-    export default {
-        methods: {
-            goToHistory(){
-                this.$router.push("/history")
-            },
-            goToPromise(){
-                this.$router.push("/promise")
-            },
-            goToNews(){
-                this.$router.push("/news")
-            }
-            
-             
-        }
-    }
-
-</script>

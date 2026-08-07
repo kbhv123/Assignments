@@ -28,7 +28,7 @@
         
      
             
-            <div class="col">{{ corporate.response }}</div>
+            <div class="col">{{ corporate.info }}</div>
 
         
         
@@ -66,6 +66,9 @@
                     `http://localhost:3000/corporate?page=${this.page}`
                 );
                 this.corporates = await response.json();
+
+               
+            
             },
 
             async nextPage() {
@@ -95,7 +98,7 @@
 
                 if(data.success) {
                     this.getCorporatePage();
-
+                    
                 } else {
                     alert(data.message);
                 }

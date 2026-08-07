@@ -126,7 +126,12 @@
                 const data = await response.json();
 
                 console.log(data);
-                
+                 if(data.success) {
+                    alert("Your Donation Has Been Sent");
+                    
+                } else {
+                    alert(data.message);
+                }
                 
                 
             },
