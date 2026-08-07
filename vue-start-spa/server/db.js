@@ -1,5 +1,6 @@
 const sqlite3 = require("sqlite3").verbose();
 
+//Creates our New Database with All our Tables
 const db = new sqlite3.Database("./users.db", (err) => {
     if (err) {
         console.error(err.message);

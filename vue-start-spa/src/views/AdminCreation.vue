@@ -56,6 +56,20 @@
 
         methods: {
             async createAdmin() {
+
+
+                 if (
+                    !this.username.trim() ||
+                    !this.password.trim() ||
+                    !this.email.trim()
+                    
+                    
+                ){
+                    alert("Please Complete All The Required Fields");
+                    return;
+                }
+
+
                 const response = await fetch (
                     "http://localhost:3000/admin",
                     {
@@ -72,7 +86,13 @@
                 );
                 const data = await response.json();
                 console.log(data);
-                alert("Admin Created");
+
+                if(data.success) {
+                    alert("Admin Created");
+                } else {
+                    alert(data.message);
+                }
+                
             }
         }
     }

@@ -8,6 +8,7 @@
                     v-model="name"
                     type="text"
                     class="form-control"
+                    required
                     
                     >
                 <label for="phone">Phone Number</label>
@@ -15,13 +16,14 @@
                     v-model="phone"
                     type="text"
                     class="form-control"
-                    
+                    required
                     >
                 <label for="email">Email</label>
                 <input
                     v-model="email"
                     type="email"
                     class="form-control"
+                    required
                     
                     >
                 <label for="prefered">Preferred Contact Method</label>
@@ -29,6 +31,7 @@
                     v-model="preferred"
                     type="text"
                     class="form-control"
+                    required
                     
                     >
                 <label for="town/suburb">Town/Suburb</label>
@@ -36,6 +39,7 @@
                     v-model="town"
                     type="text"
                     class="form-control"
+                    required
                     
                     >
                 <label for="info">Tell us a bit about yourself</label>
@@ -43,6 +47,7 @@
                     v-model="info"
                     type="text"
                     class="form-control"
+                    required
                     
                     ></textarea>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -73,6 +78,20 @@
         methods: {
             async volunteer(){
                 console.log("volunteer method is running");
+
+
+                if (
+                    !this.name.trim() ||
+                    !this.phone.trim() ||
+                    !this.email.trim() ||
+                    !this.preferred.trim() ||
+                    !this.town.trim() ||
+                    !this.info.trim()
+                ){
+                    alert("Please Complete All The Required Fields");
+                    return;
+                }
+
                 const response = await fetch(
                     "http://localhost:3000/volunteer",
                     {

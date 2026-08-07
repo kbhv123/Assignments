@@ -15,6 +15,7 @@
                     v-model="name"
                     type="text"
                     class="form-control"
+                    required
                     
                     >
                 <label for="company">Company</label>
@@ -22,6 +23,7 @@
                     v-model="company"
                     type="text"
                     class="form-control"
+                    required
                     
                     >
                 <label for="position">Your Position at Company</label>
@@ -29,28 +31,28 @@
                     v-model="position"
                     type="text"
                     class="form-control"
-                    
+                    required
                     >
                 <label for="email">Email Address</label>
                 <input
                     v-model="email"
                     type="email"
                     class="form-control"
-                    
+                    required
                     >
                 <label for="postcode">Postcode</label>
                 <input
                     v-model="postcode"
                     type="text"
                     class="form-control"
-                    
+                    required
                     >
                 <label for="info">Message</label>
                 <textarea
                     v-model="info"
                     type="text"
                     class="form-control"
-                    
+                    required
                     ></textarea>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -80,6 +82,21 @@
         methods: {
             async corporate(){
                 console.log("contact method is running");
+
+
+                if (
+                    !this.name.trim() ||
+                    !this.company.trim() ||
+                    !this.position.trim() ||
+                    !this.email.trim() ||
+                    !this.postcode.trim() ||
+                    !this.info.trim()
+                ){
+                    alert("Please Complete All The Required Fields");
+                    return;
+                }
+
+
                 const response = await fetch(
                     "http://localhost:3000/corporate",
                     {

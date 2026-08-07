@@ -64,6 +64,18 @@
         methods: {
             async contact(){
                 console.log("contact method is running");
+
+                if (
+                    !this.name.trim() ||
+                    !this.email.trim() ||
+                    !this.response.trim() 
+                    
+                ){
+                    alert("Please Complete All The Required Fields");
+                    return;
+                }
+
+
                 const response = await fetch(
                     "http://localhost:3000/contact",
                     {

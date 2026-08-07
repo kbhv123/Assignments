@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
+//Imports for Basic Pages
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import Contact from "@/views/Contact.vue";
@@ -186,13 +187,13 @@ const routes = [
     }
 ];
 
-
+//Our Router
 const router = createRouter({
     history: createWebHistory(),
     routes
 });
 
-
+//Checks to See If the Page Requires Authorisation 
 router.beforeEach((to, from, next) => {
     const loggedIn = localStorage.getItem("loggedIn") === "true";
 

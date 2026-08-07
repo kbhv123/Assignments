@@ -1,6 +1,7 @@
+
+//Imports for database related functionality
 const express = require("express");
 const cors = require("cors");
-const {createItem, readItem, updateItem, deleteItem} = require("./crud");
 const db = require("./db");
 
 
@@ -13,51 +14,7 @@ app.use(express.json());
 
 
 
-app.get('/users', (req, res) => {
-    readItem((err, rows) => {
-        if(err){
-            res.status(500).send(err.message )
-        }else {
-            res.status(200).json(rows)
-        }
-    })
-})
-
-
-app.post('/users', (req,res) => {
-    const {username, password, email} = req.body
-    createItem(username, password, email, (err, data) => {
-        if(err) {
-            res.status(500).send(err.message)
-        }else {
-            res.status(200).send(`admin is created with username: ${data.username}`)
-        }
-    })
-})
-
-app.put('/users/:id', (req, res) => {
-    const {username, password, email} = req.body;
-    updateItem(req.params.id, username, password, email, (err) => {
-        if(err) {
-            res.status(500).send(err.message)
-        } else {
-            res.status(200).send("Updated Item")
-        }
-    })
-
-})
-
-app.delete('/users/:id', (req, res) => {
-    deleteItem(req.params.id, (err) => {
-        if(err){
-            res.status(500).send(err.message)
-        } else {
-            res.status(200).send("deleted admin")
-        }
-    })
-})
-
-
+//Login Check with Exact Email and Password
 app.post("/login", (req, res) => {
 
     const {password, email} = req.body;
@@ -87,6 +44,7 @@ app.post("/login", (req, res) => {
     );
 });
 
+//Donations Post Request to Add New Donations
 app.post("/donations", (req, res) => {
     const {name, email, card_no, expiry, security_code, amount} = req.body;
     
@@ -111,6 +69,7 @@ app.post("/donations", (req, res) => {
 
 });
 
+//Get Request For Donations to Display Donations to Admins
 app.get("/donations", (req, res) => {
 
 
@@ -132,6 +91,7 @@ app.get("/donations", (req, res) => {
 
 });
 
+//Delete Request for Donations
 app.delete("/donations/:id", (req, res) => {
     const id = req.params.id;
 
@@ -152,7 +112,7 @@ app.delete("/donations/:id", (req, res) => {
     
 });
 
-
+//Post Request to Add more Admins
 app.post("/admin", (req, res) => {
     const {username, password, email} = req.body;
 
@@ -160,23 +120,29 @@ app.post("/admin", (req, res) => {
     db.run(
         `INSERT INTO users (username, password, email) VALUES (?,?,?)`,
         [username, password, email],
-        function(err){
+        function (err) {
             if (err) {
-                res.status(500).json({success: false, message:err.message})
-            } else {
-                res.json({
-                    success: true,
-                    id: this.lastID
-                });
+                if (err.message.includes("UNIQUE")) {
+                    return res.status(400).json({
+                        success: false, 
+                        message: "Email Already Exists"
+                    });
+                }
+                return res.status(500).json({
+                    success: false, 
+                    message: err.message
+                })
             }
+            res.json({
+                success: true,
+                id: this.lastID
+            })
         }
-        
-    )
-
+    );
 });
 
 
-
+//Get Request to See All Admins
 app.get("/admin", (req, res) => {
 
 
@@ -198,6 +164,7 @@ app.get("/admin", (req, res) => {
 
 });
 
+//Post Request to Add new Contact Information from Users
 app.post("/contact", (req, res) => {
     const {name, email, response} = req.body;
 
@@ -222,7 +189,7 @@ app.post("/contact", (req, res) => {
 
 
 
-
+//Get Request to Display all Contact Messages
 app.get("/contact", (req, res) => {
 
 
@@ -245,7 +212,7 @@ app.get("/contact", (req, res) => {
 });
 
 
-
+//Post Request to Add New Volunteer Requests
 app.post("/volunteer", (req, res) => {
     const {name, phone, email, preferred, town, info} = req.body;
 
@@ -268,7 +235,7 @@ app.post("/volunteer", (req, res) => {
 
 });
 
-
+//Get Request to display Volunteer Requests to Admins
 app.get("/volunteer", (req, res) => {
 
 
@@ -290,7 +257,7 @@ app.get("/volunteer", (req, res) => {
 
 });
 
-
+//Post Request to Add New Corporate Requests
 app.post("/corporate", (req, res) => {
     const {name, company, position, email, postcode, info} = req.body;
 
@@ -313,7 +280,7 @@ app.post("/corporate", (req, res) => {
 
 });
 
-
+//Get Request for Corporate Messages so Admins Can See
 app.get("/corporate", (req, res) => {
 
 
@@ -336,7 +303,7 @@ app.get("/corporate", (req, res) => {
 });
 
 
- 
+//Allows our Server to Listen to Requests 
 app.listen(3000, () => {
     console.log("server is on")
 });

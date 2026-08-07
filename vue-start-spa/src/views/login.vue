@@ -46,7 +46,23 @@
 
         methods: {
             async login(){
+
+
+                 if (
+                    !this.email.trim() ||
+                    !this.password.trim() 
+                    
+                    
+                ){
+                    alert("Please Complete All The Required Fields");
+                    return;
+                }
+
                 const response = await fetch(
+
+
+                   
+
                     "http://localhost:3000/login",
                     {
                         method: "POST",

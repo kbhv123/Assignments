@@ -91,6 +91,21 @@
         methods: {
             async donate(){
                 console.log("donate method is running");
+
+
+                if (
+                    !this.name.trim() ||
+                    !this.email.trim() ||
+                    !this.card_no.trim() ||
+                    !this.expiry.trim() ||
+                    !this.security_code.trim() ||
+                    !this.amount.trim()
+                ){
+                    alert("Please Complete All The Required Fields");
+                    return;
+                }
+
+
                 const response = await fetch(
                     "http://localhost:3000/donations",
                     {
